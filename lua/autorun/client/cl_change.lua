@@ -22,6 +22,7 @@ surface.CreateFont( "BestFont", {
 } )
 
 function AddTab(sheet, name, edit)
+	local ply = LocalPlayer()
 	local panel1 = vgui.Create( "DPanel", sheet )
 	panel1.Paint = function(self,w,h)
 		draw.RoundedBox(0,0,0,w,h,CConfig.Foreground)
@@ -37,7 +38,7 @@ function AddTab(sheet, name, edit)
 	text:SetDrawBackground(edit)
 	panel1:SizeToContents()
 	text:SizeToContents()
-	if LocalPlayer():IsAdmin() then
+	if CAllowed_Groups[ply:GetNWString("usergroup")] then
 		local DeleteButton = vgui.Create("DButton",panel1)
 		DeleteButton:SetSize(130,30)
 		DeleteButton:SetPos(405,535)
@@ -62,6 +63,7 @@ function AddTab(sheet, name, edit)
 end
 
 function Changelogs()
+	local ply = LocalPlayer()
 	net.Start("loadserver")
 	net.SendToServer()
 	
@@ -110,7 +112,7 @@ function Changelogs()
 	Servertext:SetText(CConfig.Name .. " Changelogs")
 	Servertext:SetFont("Trebuchet24")	
 	
-	if LocalPlayer():IsAdmin() then
+	if CAllowed_Groups[ply:GetNWString("usergroup")] then
 		local AddButton = vgui.Create("DButton",Frame)
 		AddButton:SetSize(130,30)
 		AddButton:SetPos(700-146,592)

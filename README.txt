@@ -12,5 +12,6 @@ Installation: Simply drago and drop the master folder into your addon folder and
 Make sure you restart your server once you add it.
 
 Credits: Scratch(agent766) for helping me with everything related to the saving and loading.
+LittleBigBug - Helping me understand out tables work so I could get ulx user group working.
 
 If you need any help, please contact me on the Facepunch thread: http://facepunch.com/showthread.php?t=1482164
