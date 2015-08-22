@@ -170,3 +170,5 @@ hook.Add("OnPlayerChat","openlogs",function(ply,text)
 		end
 	end
 end)
+
+concommand.Add( "changelogs_open", Changelogs )
