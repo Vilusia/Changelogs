@@ -9,7 +9,7 @@ CConfig.Titlebg = Color(40,40,40,255) -- Color for the color at the header
 CConfig.Foreground = Color(40,40,40,255) -- Color for the foreground
 CConfig.TextColor = Color(255,255,255,255) -- Color odf the text
 CConfig.MaxText = 1023 --How much text the changelog can be. This can not be edited changed as it is a gmod limit.
-CConfig.Name = "Community" -- The name of your server/community
+CConfig.Name = "FurCrazy" -- The name of your server/community
 
 --Add custom groups here. They must be in order, so don't skip.
 CAllowed_Groups = {

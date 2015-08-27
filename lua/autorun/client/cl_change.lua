@@ -86,7 +86,6 @@ function Changelogs()
 	sheet:Dock( FILL )
 
 	local DLabel = vgui.Create( "DLabel", DScrollPanel )
-	DLabel:SetText( "DLabel" )
 	DLabel:SetPos( 40, 40 )
 	DLabel:SizeToContents()
 	
@@ -143,7 +142,6 @@ function Changelogs()
 			end
 			SaveButton.DoClick = function(self)	
 				net.Start("updateServer")
-				print("Sent message to server.")
 					net.WriteString(text:GetText())
 				net.SendToServer()
 				Frame:Close()
@@ -153,9 +151,14 @@ function Changelogs()
 	
 	OnClientUpdate = function() 
 		local tabs = net.ReadTable()
-		for name,content in pairs (tabs) do
-			local text = AddTab(sheet,name)
-			text:SetText(content)
+		local newTabs = {}
+		for name,content in pairs(tabs) do
+			table.insert(newTabs, { name = name, content = content })
+		end
+		table.SortByMember(newTabs, "name")
+		for _,log in pairs(newTabs) do
+			local text = AddTab(sheet, log.name)
+			text:SetText(log.content)
 		end
 		OnClientUpdate = function() end
 	end
