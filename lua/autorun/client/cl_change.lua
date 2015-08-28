@@ -84,10 +84,6 @@ function Changelogs()
 	end
 	local sheet = vgui.Create( "DPropertySheet", Frame )
 	sheet:Dock( FILL )
-
-	local DLabel = vgui.Create( "DLabel", DScrollPanel )
-	DLabel:SetPos( 40, 40 )
-	DLabel:SizeToContents()
 	
 	CloseButton = vgui.Create("DButton",Frame)
 	CloseButton:SetSize(30,30)
